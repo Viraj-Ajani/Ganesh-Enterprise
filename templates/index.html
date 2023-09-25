@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <table align="center">
+        <form action="/" method="post">
+            <tr>
+                <td><input autocomplete="off" list="kankotris" autofocus class="form-control" name="id" placeholder="ID" type="text">
+                <datalist id="kankotris">
+                    {% for kankotri in kankotris %}
+                        <option>{{ kankotri }}</option>
+                    {% endfor %}
+                </datalist>
+                </td>
+                <td><input autocomplete="off" autofocus class="form-control" name="quantity" placeholder="Quantity" type="text"></td>
+                <td><button class="btn btn-primary" name="button" value="availability" type="submit">Check availability</button></td>
+            </tr>
+            <tr><td colspan="3"><button class="btn btn-primary" name="button" value="order" type="submit">Place Order</button></td></tr>
+        </form>
+    </table>
+    {{ message }}
+{% endblock %}

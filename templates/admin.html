@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<table align="center">
+    <tr>
+        <th>Shop</th>
+        <th>ID</th>
+        <th>Quantity</th>
+        <th>Amount</th>
+        <th>Delivered</th>
+    </tr>
+    {% for order in orders %}
+    <tr>
+        <td>{{ order['username'] }}</td>
+        <td>{{ order['id'] }}</td>
+        <td>{{ order['quantity'] }}</td>
+        <td>{{ order['amount'] }}</td>
+        <td>
+            <form action="/" method="post"><button class="btn btn-primary" name="button" value={{order["orderid"]}}
+                    type="submit">Billed</button></form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

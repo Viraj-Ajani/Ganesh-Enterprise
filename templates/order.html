@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    : Kankotri Ordered
+{% endblock %}
+
+{% block main %}
+    <h1 align = "center"> Orders to be collected...</h1>
+    <table align = "center">
+        <tr><th>ID</th><th>Quantity</th><th>Amount</th></tr>
+        {% for order in orders %}
+        <tr>
+            <td>{{ order['id'] }}</td>
+            <td>{{ order['quantity'] }}</td>
+            <td>{{ order['amount'] }}</td>
+        </tr>
+        {% endfor %}
+        <tr><td> </td><td> </td><td>{{ total }}</td></tr>
+    </table>
+{% endblock %}

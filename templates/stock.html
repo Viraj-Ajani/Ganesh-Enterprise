@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    : Kankotri Stock
+{% endblock %}
+
+{% block main %}
+    <table align="center">
+        <form action="/stock" method="post">
+        <tr>
+            <th rowspan=2 align="left">Manage Stock</th>
+        </tr>
+        <tr>
+            
+            <td><input autocomplete="off" list="kankotris" autofocus class="form-control" name="id" placeholder="ID" type="text">
+            <datalist id="kankotris">
+                {% for kankotri in kankotris %}
+                    <option>{{ kankotri }}</option>
+                {% endfor %}
+            </datalist>
+            </td>
+            <td><input autocomplete="off" autofocus class="form-control" name="quantity" placeholder="Quantity" type="text"></td>
+            <td><button class="btn btn-primary" name="button" value="edit" type="submit">Edit</button></td>
+            <td><button class="btn btn-primary" name="button" value="add" type="submit">Add</button></td>
+            <td><button class="btn btn-primary" name="button" value="remove" type="submit">Remove</button></td>
+        </tr>
+        </form>
+    </table>
+{% endblock %}
